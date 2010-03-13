@@ -4,17 +4,21 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
+using MongoContact.Models;
 
 namespace MongoContact.Controllers
 {
     public class HomeController : Controller
     {
+
+        private MongoSession _session = new MongoSession();
+
         //
         // GET: /Home/
 
         public ActionResult Index()
         {
-            return View();
+            return View(_session.Contacts.ToList());
         }
 
         //
