@@ -17,7 +17,6 @@ App_Data
 *.bak
 *.manifest
 *.exe
-*.dll
 *.pdb
 *.cache
 *.suo
