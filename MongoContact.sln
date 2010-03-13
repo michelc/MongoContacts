@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoContact", "MongoContact\MongoContact.csproj", "{3ACE3C44-520F-4E98-B2BB-FCF7558F5849}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoContact.Tests", "MongoContact.Tests\MongoContact.Tests.csproj", "{E5D84306-EEBB-416E-AC9D-D82D287B0CCD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3ACE3C44-520F-4E98-B2BB-FCF7558F5849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ACE3C44-520F-4E98-B2BB-FCF7558F5849}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ACE3C44-520F-4E98-B2BB-FCF7558F5849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ACE3C44-520F-4E98-B2BB-FCF7558F5849}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5D84306-EEBB-416E-AC9D-D82D287B0CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5D84306-EEBB-416E-AC9D-D82D287B0CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5D84306-EEBB-416E-AC9D-D82D287B0CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5D84306-EEBB-416E-AC9D-D82D287B0CCD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
