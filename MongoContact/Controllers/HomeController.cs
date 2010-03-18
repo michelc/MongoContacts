@@ -62,22 +62,22 @@ namespace MongoContact.Controllers
 
         //
         // GET: /Home/Create
-
         public ActionResult Create()
         {
             return View();
-        } 
+        }
 
         //
         // POST: /Home/Create
-
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create([Bind(Exclude = "Id")] Contact contactToCreate)
         {
+            if (!ModelState.IsValid)
+                return View();
+
             try
             {
-                // TODO: Add insert logic here
-
+                _session.Add<Contact>(contactToCreate);
                 return RedirectToAction("Index");
             }
             catch
