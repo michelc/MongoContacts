@@ -60,6 +60,11 @@ namespace MongoContact.Models
             return _provider.DB.GetCollection<T>().Updateable;
         }
 
+        public void Delete<T>(T item) where T : class, new()
+        {
+            _provider.DB.GetCollection<T>().Delete(item);
+        }
+
         public void Drop<T>()
         {
             _provider.DB.DropCollection(typeof(T).Name);

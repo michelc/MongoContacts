@@ -31,6 +31,7 @@
         <tr>
             <td>
                 <%= Html.ActionLink("Edit", "Edit", new { id = item.IdString() })%>
+                | <%= Html.ActionLink("Delete", "Delete", new { id = item.IdString() })%>
             </td>
             <td>
                 <%= Html.Encode(item.FirstName) %>

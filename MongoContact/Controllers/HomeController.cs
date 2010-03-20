@@ -128,5 +128,38 @@ namespace MongoContact.Controllers
                 return View();
             }
         }
+
+        //
+        // GET: /Home/Delete/5
+
+        public ActionResult Delete(string id)
+        {
+            ObjectId oid = new ObjectId(id);
+            var contactToDelete = _session.Provider.DB.GetCollection<Contact>().Find(new { Id = oid }).FirstOrDefault();
+
+            return View(contactToDelete);
+        }
+
+        //
+        // POST: /Home/Delete/5
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Delete(string id, string confirmButton)
+        {
+            try
+            {
+                ObjectId oid = new ObjectId(id);
+                var contactToDelete = _session.Provider.DB.GetCollection<Contact>().Find(new { Id = oid }).FirstOrDefault();
+
+                _session.Delete(contactToDelete);
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
     }
 }
