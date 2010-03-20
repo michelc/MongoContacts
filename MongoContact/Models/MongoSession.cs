@@ -50,6 +50,11 @@ namespace MongoContact.Models
             _provider.DB.GetCollection<T>().UpdateOne(item, item);
         }
 
+        public void Update<T>(T match, T value) where T : class, new()
+        {
+            _provider.DB.GetCollection<T>().UpdateOne(match, value);
+        }
+
         public bool Updatable<T>(T item) where T : class, new()
         {
             return _provider.DB.GetCollection<T>().Updateable;

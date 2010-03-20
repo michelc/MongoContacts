@@ -103,15 +103,23 @@ namespace MongoContact.Controllers
 
             return View(contactToEdit);
         }
+
         //
         // POST: /Home/Edit/5
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(string id, [Bind(Exclude = "Id")] Contact contactToEdit)
         {
+            if (!ModelState.IsValid)
+                return View();
+
             try
             {
-                // TODO: Add update logic here
+                ObjectId oid = new ObjectId(id);
+                var originalContact = _session.Provider.DB.GetCollection<Contact>().Find(new { Id = oid }).FirstOrDefault();
+
+                contactToEdit.Id = new ObjectId(id);
+                _session.Update(originalContact, contactToEdit);
 
                 return RedirectToAction("Index");
             }
