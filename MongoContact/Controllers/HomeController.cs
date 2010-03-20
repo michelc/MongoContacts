@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
 using MongoContact.Models;
+using NoRM;
 
 namespace MongoContact.Controllers
 {
@@ -88,12 +89,20 @@ namespace MongoContact.Controllers
 
         //
         // GET: /Home/Edit/5
- 
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
 
+        public ActionResult Edit(string id)
+        {
+            ObjectId oid = new ObjectId(id);
+
+            // LINQ ne fonctionne pas avec un ObjectId :(
+            var contactToEdit = (from c in _session.Contacts
+                                 where c.Id == oid
+                                 select c).FirstOrDefault();
+
+            contactToEdit = _session.Provider.DB.GetCollection<Contact>().Find(new { Id = oid }).FirstOrDefault();
+
+            return View(contactToEdit);
+        }
         //
         // POST: /Home/Edit/5
 
@@ -103,7 +112,7 @@ namespace MongoContact.Controllers
             try
             {
                 // TODO: Add update logic here
- 
+
                 return RedirectToAction("Index");
             }
             catch
