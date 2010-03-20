@@ -1,4 +1,5 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<MongoContact.Models.Contact>>" %>
+<%@ Import namespace="MongoContact.Models" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Index
@@ -29,7 +30,7 @@
     
         <tr>
             <td>
-                *
+                <%= Html.ActionLink("Edit", "Edit", new { id = item.IdString() })%>
             </td>
             <td>
                 <%= Html.Encode(item.FirstName) %>

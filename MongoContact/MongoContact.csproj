@@ -69,6 +69,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\ContactExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\MongoSession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
